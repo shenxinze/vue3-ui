@@ -1,0 +1,31 @@
+{
+  "name": "sxzui",
+  "description": "学习开发自己的UI组件库",
+  "private": false,
+  "version": "0.0.1",
+  "main": "./dist/sxzui.umd.js",
+  "module": "./dist/sxzui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/sxzui.es.js",
+      "require": "./dist/sxzui.umd.js"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "sass": "^1.50.1",
+    "sxzui": "^0.0.1",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vite": "^2.9.5"
+  }
+}
