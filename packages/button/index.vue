@@ -1,11 +1,13 @@
 <template>
 	<button :class="tClass">
-		<slot></slot>
+		<i class="iconfont" :class="leftIcon" v-if="leftIcon"></i>
+		<span v-if="slots.default"><slot></slot></span>
+		<i class="iconfont" :class="rightIcon" v-if="rightIcon"></i>
 	</button>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, useSlots } from 'vue'
 const props = defineProps({
 	type: {
 		type: String,
@@ -16,7 +18,9 @@ const props = defineProps({
 		default: 'default'
 	},
 	round: Boolean,
-	disabled: Boolean
+	disabled: Boolean,
+	leftIcon: String,
+	rightIcon: String
 })
 const tClass = computed(() => {
 	let sizeClass = ''
@@ -40,6 +44,7 @@ const tClass = computed(() => {
 		props.round ? 's-button-round': ''
 	]
 })
+const slots = useSlots()
 </script>
 <script>
 export default {
@@ -187,7 +192,7 @@ button {
 	}
 	&.s-button-dashed-disabled {
 		cursor: no-drop;
-		border: 1px solid #d9d9d9;
+		border: 1px dashed #d9d9d9;
 		background: #fff;
 		opacity: 0.5;
 		color: #333;
