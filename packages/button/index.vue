@@ -20,7 +20,8 @@ const props = defineProps({
 	round: Boolean,
 	disabled: Boolean,
 	leftIcon: String,
-	rightIcon: String
+	rightIcon: String,
+	block: Boolean
 })
 const tClass = computed(() => {
 	let sizeClass = ''
@@ -41,7 +42,8 @@ const tClass = computed(() => {
 		sizeClass,
 		props.type ? (props.disabled ? '' : `s-button-${props.type}`) : '',
 		props.disabled ? `s-button-${props.type}-disabled`: '',
-		props.round ? 's-button-round': ''
+		props.round ? 's-button-round': '',
+		props.block ? 's-button-block': ''
 	]
 })
 const slots = useSlots()
@@ -207,6 +209,16 @@ button {
 	&.s-button-custom-disabled {
 		cursor: no-drop;
 		opacity: 0.5;
+	}
+	i+span{
+		margin-left: 4px;
+	}
+	span+i{
+		margin-left: 4px;
+	}
+	&.s-button-block {
+		display: block;
+		width: 100%;
 	}
 }
 </style>
